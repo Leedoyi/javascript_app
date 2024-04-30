@@ -93,6 +93,13 @@ function revealCells(cellIndex) {
       }
     }
   }
+
+  // Check if all non-mine cells are revealed
+  if (revealedCells.size === totalCells - totalMines) {
+    setTimeout(() => {
+      alert("Congratulations! You've cleared the game!");
+    }, 100);
+  }
 }
 
 function isValidCellIndex(index) {

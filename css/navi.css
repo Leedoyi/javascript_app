@@ -17,7 +17,7 @@
 }
 
 button:not(.btn_login, #change_quote, #show-todo-button, .game_list_button) {
-    width: 130PX;
+    width: 150PX;
     font-family: inherit;
     border: none;
     background: none;

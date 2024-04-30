@@ -18,7 +18,7 @@
         <div class="header_menu">
             <button>Home</button>
             <button>Minesweeper Game</button>
-            <button>Tetris Game</button>
+            <button>Breakout Game</button>
             <button>Match Game</button>
         </div>
 
@@ -104,9 +104,9 @@
                         </div>
 
                         <div class="game_list_commmon">
-                            <img src="https://play-lh.googleusercontent.com/_I0KeGDrNHCA-X3vCsPXAp7xthqEIxmCD9nP3ru6CbKwV9pliGBNz09phScWBxVxKw"
-                                alt="테트리스" />
-                            <button class="game_list_button">go play <br />tetris</button>
+                            <img src="https://imgs2.dab3games.com/atari-breakout-game.jpg"
+                                alt="브레이크아웃" />
+                            <button class="game_list_button">go play <br />Breakout</button>
                         </div>
 
                         <div class="game_list_commmon">
@@ -154,8 +154,10 @@
                     </path>
                 </svg>
 
-                <div class="Tetris_game_wrap">
-                    <div class="game_title">Tetris Game</div>
+                <div class="Breakout_game_wrap">
+                    <div class="game_title">Breakout Game</div>
+                    <canvas id="gameCanvas" width="470" height="420"></canvas>
+                    <button id="startButton">Start Game</button>
                 </div>
             </div>
 
@@ -189,6 +191,7 @@
     <script src="./js/weather.js"></script>
     <script src="./js/gsap.js"></script>
     <script src="./js/game.js"></script>
+    <script src="./js/Breakout.js"></script>
 </body>
 
 </html>
