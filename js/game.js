@@ -57,7 +57,7 @@ function checkForMatch() {
     matchedPairs++;
 
     if (matchedPairs === symbols.length) {
-      alert("축하드립니다.🎉 모든 카드의 짝을 맞췄습니다!👏");
+      alert("축하드립니다🎉 모든 카드의 짝을 맞췄습니다!👏");
       resetGame();
     }
   } else {

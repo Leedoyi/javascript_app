@@ -1,0 +1,268 @@
+.header {
+    display: flex;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_menu {
+    display: flex;
+    align-items: center;
+}
+
+button:not(.btn_login, #change_quote, #show-todo-button, .game_list_button) {
+    width: 130PX;
+    font-family: inherit;
+    border: none;
+    background: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.header_clock {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 로그인 박스 */
+#box01 {
+    padding-right: 30px;
+    /* background-color: var(--box01-color); */
+    filter: url(#turbulence);
+}
+
+#login-form {}
+
+#greeting {
+    padding-right: 30px;
+    font-size: 1rem;
+    font-family: 'GmarketSansMedium';
+}
+
+#login-form input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid var(--login_btton-color);
+    height: 30px;
+}
+
+#login-form input::placeholder {
+    color: var(--font-color);
+    font-size: 0.9rem;
+    font-family: 'GmarketSansMedium';
+}
+
+input:focus {
+    outline: none;
+}
+
+#login-form input::placeholder:hover {
+    font-size: 5rem;
+}
+
+#login-form button {
+    width: 55px;
+    height: 30px;
+    border: 2px solid var(--login_btton-color);
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all, 0.4s;
+    font-family: 'GmarketSansMedium';
+    transition: all 0.5s;
+}
+
+#login-form button:hover {
+    font-size: 1rem;
+}
+
+
+
+/* 하단 고정 */
+.bottom_sub_feature {
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    z-index: 99;
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#weather {
+    font-size: 0.8rem;
+}
+
+#weather>span:nth-child(1) {
+    margin-bottom: -20px;
+}
+
+/* toggle */
+.line6 {
+  
+}
+
+#dn {
+    display: none;
+}
+
+
+/* toggle배경 width,height */
+.toggle2 {
+    cursor: pointer;
+    display: inline-block;
+    width: 54px;
+    height: 26px;
+    background: #dfe2e3;
+    border-radius: 84px;
+    transition: background 200ms cubic-bezier(.445, .05, .55, .95);
+}
+
+.toggle__handler {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    background: #ffe5b5;
+    background: #ffde7b;
+    border-color: #debd56;
+    box-shadow: none;
+    background-size: 0;
+    transition: transform .5s;
+    border: 0.188em solid #caba94;
+}
+
+#dn:checked+.toggle2 {
+    background: #dfe2e3
+}
+
+#dn:checked+.toggle2 .toggle__handler {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-block;
+    transform: translate3d(28px, 0, 0) rotate(0);
+    border: .188em solid #caba94;
+    background: #ffefb5;
+    box-shadow: inset -.15em -.15em #ffe096;
+    background-image: radial-gradient(circle at 60% 10%, #e6cea5 15%, transparent 0), radial-gradient(circle at 30% 50%, #e6cea5 10%, transparent 0), radial-gradient(circle at 60% 70%, #e6cea5 13%, transparent 0);
+    transition: transform .2s ease-in-out, background .3s, border-color .3s
+}
+
+
+
+/* todo-list */
+
+#show-todo-button{
+    margin: 0px 20px;
+    border: none;
+    background-color: transparent;
+    font-family: 'GmarketSansMedium';
+}
+
+#show-todo-button:hover{
+    cursor: pointer;
+}
+
+.todo-container{
+    font-size: 1rem;
+    width: 200px;
+}
+
+/* todobox */
+#box03 {
+    position: fixed;
+    bottom: 70px;
+    right: 60px;
+    margin-top: 50px;
+    width: 200px;
+    height: 300px;
+    border-radius: 30px;
+    background-color: var(--box03-color);
+    filter: url(#turbulence);
+}
+
+#todo-form{
+    display: flex;
+    justify-content: center;
+}
+
+ul#todo-list {
+    overflow: scroll;
+    height: 180px;
+    width: 230px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#todo-list li {
+    height: 30px;
+    list-style: none;
+    color: var(--font-color);
+    font-size: 0.8rem;
+    font-family: 'GmarketSansMedium';
+}
+
+#todo-form input {
+    border-width: 0 0 5px;
+    border-bottom: 2px solid var(--todo-form-input-color);
+    color: var(--font-color);
+    text-align: center;
+    background-color: transparent;
+    font-size: 0.8rem;
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+    transition: all, 0.5s;
+}
+
+#todo-form input:focus {
+    outline: none;
+}
+
+#todo-form input:hover::-webkit-input-placeholder {
+    color: transparent;
+}
+
+#todo-list button {
+    width: 30px;
+    height: 50px;
+    margin-left: 10px;
+    border: none;
+    font-size: 1.2rem;
+    background-color: transparent;
+}
+
+#todo-list button:hover {
+    cursor: pointer;
+}
+
+#todo-form>input::placeholder {
+    color: var(--font-color);
+    font-family: 'GmarketSansMedium';
+}

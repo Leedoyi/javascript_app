@@ -57,3 +57,15 @@ if (savedTodos !== null) {
      parsedTodos.forEach(paintTodo);
 }
 
+
+const showTodoButton = document.getElementById("show-todo-button");
+const todoContainer = document.getElementById("todo-container");
+
+showTodoButton.addEventListener("click", function () {
+  // todoContainer의 display 속성을 토글합니다.
+  if (todoContainer.style.display === "none") {
+    todoContainer.style.display = "block";
+  } else {
+    todoContainer.style.display = "none";
+  }
+});

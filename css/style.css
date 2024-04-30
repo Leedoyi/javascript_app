@@ -15,87 +15,7 @@
     font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Exo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    overflow-x: hidden;
-    font-family: "Basier Circle Mono", sans-serif;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    /* color: #222; */
-}
-
-.hidden {
-    display: none;
-}
-
-button:not(.btn_login, #change_quote) {
-    width: 170PX;
-    font-family: inherit;
-    border: none;
-    background: none;
-    padding: 25px 0px;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    outline: none;
-    cursor: pointer;
-    opacity: 0.5;
-}
-
-
-.navigation {
-    display: table;
-    background-color: rgba(245, 245, 245, 0.5);
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    display: flex;
-}
-
-
-#clock {
-    position: fixed;
-    z-index: 3;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: grid;
-    align-items: center;
-    margin: 5px auto;
-    height: 60px;
-    font-size: 2.5rem;
-    font-family: 'Montserrat', sans-serif;
-}
-
-#weather {
-    width: 100vw;
-    display: grid;
-    align-items: center;
-    /* background-color: #006cff; */
-    margin: 0px 20px;
-    text-align: right;
-    font-size: 0.8rem;
-    font-family: inherit;
-}
-
-#weather>span:nth-child(1) {
-    margin-bottom: -20px;
-}
-
+/* 공통 */
 .projects-scroll {
     height: 100vh;
     width: 100%;
@@ -111,6 +31,7 @@ button:not(.btn_login, #change_quote) {
 }
 
 .projects .project {
+    position: relative;
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -127,25 +48,26 @@ button:not(.btn_login, #change_quote) {
         sans-serif;
 }
 
-svg {
-    display: none;
-}
 
+
+
+/* project1 */
 
 :root {
-    --bg01-color: rgba(255, 236, 232, 0.7);
-    --bg02-color: rgba(249, 254, 221, 0.7);
-    --bg03-color: rgba(255, 249, 206, 0.7);
-    --bg04-color: rgba(232, 251, 255, 0.7);
+    --bg01-color: #A2E3F3;
+    --bg02-color: #A2E3F3;
+    --bg03-color: #A2E3F3;
+    --bg04-color: #A2E3F3;
     --font-color: rgba(0, 0, 0, 1);
     --h2-color: rgba(0, 0, 0, 1);
     --check-color: #749ed7;
-    --box01-color: rgba(255, 203, 188, 1);
+    --box01-color: transparent;
     --box02-color: rgba(227, 235, 184, 1);
     --box03-color: rgba(244, 236, 184, 1);
-    --login_btton-color: rgba(255, 236, 232, 0.7);
+    --login_btton-color: rgb(59, 59, 59);
     --quote_btton-color: rgba(249, 254, 221, 0.7);
-    --todo-form-input-color: rgba(0, 0, 0, 0.3);}
+    --todo-form-input-color: rgba(0, 0, 0, 0.3);
+}
 
 .darkmode {
     --bg01-color: #575757;
@@ -158,9 +80,9 @@ svg {
     --box01-color: rgb(170, 128, 116);
     --box02-color: rgba(137, 144, 96);
     --box03-color: rgb(177, 157, 111);
-    --login_btton-color: rgba(145, 90, 75, 0.8);
+    --login_btton-color: white;
     --quote_btton-color: rgb(109, 112, 90);
-    --todo-form-input-color:rgba(255, 255, 255, 0.5);
+    --todo-form-input-color: rgba(255, 255, 255, 0.5);
 }
 
 /*  */
@@ -197,206 +119,197 @@ button {
 }
 
 
-/* 로그인 박스 */
-#box01 {
-    position: relative;
-    width: 50vw;
-    height: 300px;
-    border-radius: 50px;
-    background-color: var(--box01-color);
-    filter: url(#turbulence);
-}
-
-#login-form {
-    /* display: grid; */
-    align-items: center;
-    height: 300px;
+#ground {
+        position: absolute;
+            bottom: 0;
+            left: 0;
+    background-color: #AADD79;
     width: 100%;
-    padding-top: 100px;
-    margin-top: 50px;
+    height: 37%;
 }
 
-#greeting {
-    padding-top: 100px;
-    margin-top: 50px;
-    font-family: 'GmarketSansMedium';
+#project02_ground {
+    background-color: #AADD79;
+    width: 100%;
+    height: 30%;
 }
 
-#login-form input {
+#project03_ground{
+            position: absolute;
+                top: 0;
+                left: 0;
+                background-color: #AADD79;
+                width: 100%;
+                height: 35%;
+}
+
+#project04_ground{
+    position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #AADD79;
+        width: 100%;
+        height: 26.3%;
+}
+
+.leaf_img {
+    position: absolute;
+    left: 0;
     width: 300px;
-    height: 100px;
-    background-color: var(--login_btton-color);
-    border: none;
+    z-index: 0;
+}
+
+.leaf_img02 {
+    position: absolute;
+    right: -30px;
+    width: 250px;
+    z-index: 0;
+    rotate: 270deg;
+}
+
+
+
+svg {
+    z-index: 1;
+}
+
+
+/* project1 */
+.game_list_wrap {
+    width: 100%;
+    position: absolute;
+}
+
+.game_list_title {
+    margin-bottom: 40px;
+    text-align: center;
+    font: bold 2.5rem 'GmarketSansMedium';
+}
+
+
+.game_list {
+    position: relative;
+    z-index: 99;
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.game_list_commmon {
+    background-color: white;
+    width: 250px;
+    height: 320px;
     border-radius: 30px;
-    transition: all, 0.4s;
-    color: var(--font-color);
-    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
 }
 
-#login-form input::placeholder {
-    color: var(--font-color);
-    font-size: 0.9rem;
-    font-family: 'GmarketSansMedium';
+
+.game_list_shadow_wrap {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: space-around;
 }
 
-input:focus {
-    outline: none;
+
+.game_list_commmon_shadow {
+    margin-top: -20px;
+    width: 270px;
+    height: 50px;
+    /* 동그란 그림자를 추가 */
+    border-radius: 100%;
+    background-color: rgba(72, 173, 67, 0.6);
+    box-shadow: 0 0 8px 0 rgba(72,
+            173,
+            67,
+            0.7);
 }
 
-#login-form input::placeholder:hover {
-    font-size: 5rem;
+.game_list_commmon>img {
+    width: 80%;
+    height: 55%;
+    border-radius: 40px;
 }
 
-#login-form button {
-    width: 70px;
-    height: 100px;
-    color: var(--font-color);
-    background-color: var(--login_btton-color);
+.game_list_button {
+    width: 150px;
+    height: 60px;
+    font: bold 1rem/30px 'GmarketSansMedium';
     border: none;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: all, 0.4s;
-    border-radius: 25px;
-    font-family: 'GmarketSansMedium';
+    background: none;
     transition: all 0.5s;
 }
 
-#login-form button:hover {
-    font-size: 1rem;
+.game_list_button:hover {
+    cursor: pointer;
+    font-size: 1.3rem;
 }
 
 
-/* box02  명언 다른 걸로 할지 고민해보기 */
-#box02 {
-    position: relative;
-    display: grid;
-    align-items: center;
-    position: relative;
-    width: 50vw;
-    height: 300px;
-    border-radius: 50px;
-    background-color: var(--box02-color);
-    filter: url(#turbulence);
-    margin-top: 50px;
-}
 
-#box02>div {}
+/*project02 지뢰찾기 */
 
-#quote {
-    margin: 10vh 5vw;
-    font-size: 1rem;
-    font-family: 'GmarketSansMedium';
-}
-
-#box02 span {
-    margin-bottom: 50px;
-}
-
-#change_quote {
+.board_wrap{
     position: absolute;
-    border-radius: 17px;
-    bottom: 10px;
-    right: 0;
-    background-color: var(--quote_btton-color);
-    width: 150px;
-    height: 40px;
-    border: none;
-    outline: none;
-    margin-right: 50px;
-    font-family: 'GmarketSansMedium';
+    z-index: 2;
+    width: 431px;
+}
+.board {
+    background-color: #000;
+    display: grid;
+    grid-template-columns: repeat(10, 42px);
+    grid-template-rows: repeat(10, 42px);
+    gap: 1px;
+    border: 1px solid #000;
 }
 
-#change_quote:hover {
-    cursor: pointer;
-}
-
-
-/* todobox */
-#box03 {
-    margin-top: 50px;
-    width: 50vw;
-    height: 300px;
-    border-radius: 50px;
-    background-color: var(--box03-color);
-    filter: url(#turbulence);
-
-}
-
-ul#todo-list {
-    overflow: scroll;
-    height: 180px;
-    width: 300px;
-    margin: 0 auto;
-}
-
-#todo-list li {
-    list-style: none;
-    color: var(--font-color);
-    font-size: 1rem;
-    margin: -10px 0 -25px;
-    font-family: 'GmarketSansMedium';
-}
-
-#todo-form input {
-    border-width: 0 0 5px;
-    border-bottom: 2px solid var(--todo-form-input-color);
-    color: var(--font-color);
-    text-align: center;
-    background-color: transparent;
-    font-size: 1rem;
-    width: 300px;
-    height: 40px;
-    margin-top: 50px;
-    transition: all, 0.5s;
-}
-
-#todo-form input:focus {
-    outline: none;
-}
-
-#todo-form input:hover::-webkit-input-placeholder {
-    color: transparent;
-}
-
-#todo-list button {
-    width: 30px;
-    height: 50px;
-    margin-left: 10px;
-    border: none;
-    font-size: 1.2rem;
-    background-color: transparent;
-}
-
-#todo-list button:hover {
-    cursor: pointer;
-}
-
-#todo-form>input::placeholder {
-    color: var(--font-color);
-    font-family: 'GmarketSansMedium';
-}
-
-
-/* game*/
-
-.match_title {
-    margin-top: 35px;
-}
-
-#box04 {
-    filter: url(#turbulence);
+.cell {
+    width: 42px;
+    height: 42px;
+    background-color: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 73vh;
-    font-family: Arial, sans-serif;
+    cursor: pointer;
 }
+
+/* 테트리스 게임 */
+
+.Tetris_game_wrap{
+    position: absolute;
+        z-index: 1;
+}
+
+/*  카드매치 게임*/
+
+.match_game_wrap{
+    position: absolute;
+    z-index: 2;
+}
+
+.game_title{
+    /* width: fit-content; */
+    /* height: 30px; */
+    text-align: center;
+    font:bold 3rem 'GmarketSansMedium';
+    margin-bottom: 30px;
+  
+}
+
 
 #game-container {
     display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-gap: 10px;
     text-align: center;
+}
+
+.hidden-symbol{
+    font-size: 2.5rem;
 }
 
 .card {
@@ -408,101 +321,12 @@ ul#todo-list {
     font-size: 1.5em;
     cursor: pointer;
     border-radius: 20px;
-    border: 1px solid rgba(71, 130, 142, 0.7);
-    ;
-    background-color: rgba(170, 233, 246, 0.7);
+    border: 1px solid rgba(75, 75, 75, 0.7);
+    background-color: rgb(223, 223, 223);
     transition: transform 0.3s ease;
 }
 
 .card.flipped {
+    font-size: 2rem;
     transform: rotateY(180deg);
-}
-
-
-/* toggle */
-.line6 {
-    position: fixed;
-    right: 30px;
-    bottom: 0;
-    z-index: 99;
-    margin: 25px 0px 0px 15px;
-}
-
-#dn {
-    display: none;
-}
-
-
-/* toggle배경 width,height */
-.toggle2 {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    right: 70px;
-    bottom: 20px;
-    margin-left: 75px;
-    width: 54px;
-    height: 26px;
-    background: #dfe2e3;
-    border-radius: 84px;
-    transition: background 200ms cubic-bezier(.445, .05, .55, .95);
-}
-
-.toggle2:before,
-.toggle2:after {
-    margin-top: 5px;
-}
-
-.toggle2:before {
-    /* content: "라이트모드"; */
-    position: absolute;
-    left: -85px;
-    color: #749ed7;
-}
-
-.toggle2:after {
-    /* content: "다크모드"; */
-    position: absolute;
-    right: -75px;
-}
-
-.toggle__handler {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    z-index: 2;
-    background: #ffe5b5;
-    background: #ffde7b;
-    border-color: #debd56;
-    box-shadow: none;
-    background-size: 0;
-    transition: transform .5s;
-    border: 0.188em solid #caba94;
-}
-
-#dn:checked+.toggle2 {
-    background: #dfe2e3
-}
-
-#dn:checked+.toggle2:before {
-    color: var(--font-color)
-}
-
-#dn:checked+.toggle2:after {
-    color: var(--check-color)
-}
-
-#dn:checked+.toggle2 .toggle__handler {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: inline-block;
-    transform: translate3d(28px, 0, 0) rotate(0);
-    border: .188em solid #caba94;
-    background: #ffefb5;
-    box-shadow: inset -.15em -.15em #ffe096;
-    background-image: radial-gradient(circle at 60% 10%, #e6cea5 15%, transparent 0), radial-gradient(circle at 30% 50%, #e6cea5 10%, transparent 0), radial-gradient(circle at 60% 70%, #e6cea5 13%, transparent 0);
-    transition: transform .2s ease-in-out, background .3s, border-color .3s
 }

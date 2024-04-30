@@ -1,19 +1,10 @@
-// const images = ["0.jpg", "1.jpg", "2.jpg" ];
-
-// const choesnImages = images[Math.floor(Math.random() * images.length)];
-
-// const bgImage = document.createElement("img");
-
-// bgImage.src = `img/${choesnImages}`;
-
-// document.body.appendChild(bgImage);
-
 function darkmodeGo() {
   const darkModeToggle = document.getElementById("dn"); // 체크박스 정의
   if (!darkModeToggle) {
     return !1;
   } // 체크 박스 없을 시 작동 종료
   const Realbody = document.querySelector("body");
+  
   darkModeToggle.addEventListener("change", function (event) {
     //체크박스의 변화 감지 리스너
     if (!Realbody.classList.contains("darkmode")) {
@@ -27,7 +18,11 @@ function darkmodeGo() {
     }
   });
 }
+
+
 darkmodeGo();
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const Realbody = document.querySelector("body");
   const whatMode = localStorage.getItem("whatMode"); //whatMode 아이템 값 불러오기

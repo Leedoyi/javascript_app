@@ -15,7 +15,7 @@ function onLoinSumbit(event){
 function paintGreetings() {
     const username = localStorage.getItem(USERNAME_KEY);
     greeting.classList.remove(HIDDEN_CLASSNAME);
-    greeting.innerText = `반갑습니다! ${username}`; 
+    greeting.innerText = `반갑습니다! ${username}님`; 
 }
 
 
