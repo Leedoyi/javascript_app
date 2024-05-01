@@ -173,6 +173,15 @@ svg {
     z-index: 1;
 }
 
+.game_title {
+    /* width: fit-content; */
+    /* height: 30px; */
+    text-align: center;
+    font: bold 3rem 'GmarketSansMedium';
+    margin-bottom: 20px;
+    margin-top: 70px;
+}
+
 
 /* project1 */
 .game_list_wrap {
@@ -257,31 +266,40 @@ svg {
     position: absolute;
     z-index: 2;
     width: 431px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .board {
-    background-color: #000;
+    background-color: #5a6328;
     display: grid;
     grid-template-columns: repeat(10, 42px);
     grid-template-rows: repeat(10, 42px);
     gap: 1px;
-    border: 1px solid #000;
+    border: 1px solid #5a6328;
 }
 
 .cell {
     width: 42px;
     height: 42px;
-    background-color: #ccc;
+    background-color: #758650;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 
+.Minesweeper_title{
+    width: 600px;
+    margin-top: -10px;
+}
+
 /*project03 breakout 게임*/
 
 .Breakout_game_wrap {
     position: absolute;
+    height: 90%;
     z-index: 1;
     display: flex;
         justify-content: center;
@@ -289,10 +307,40 @@ svg {
         flex-direction: column;
 }
 
+
+
 canvas {
-    border: 1px solid #000;
+    border: 1px solid #b4b4b4;
     background-color: #eee;
+    border-radius: 20px;
 }
+
+#startButton{
+    width: 200px;
+    padding-top: 20px;
+    font: bold 1.5rem/30px 'GmarketSansMedium';
+    height: 150px;
+    transition: all 0.5s;
+        outline: none;
+        border: none;
+          background: none;
+}
+
+#startButton:hover{
+    font-size: 1.6rem;
+}
+
+
+    #startMessage {
+        width:320px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+        font: 400 1.3rem/30px 'GmarketSansMedium';
+    }
+
 
 /*  카드매치 게임*/
 
@@ -301,14 +349,10 @@ canvas {
     z-index: 2;
 }
 
-.game_title {
-    /* width: fit-content; */
-    /* height: 30px; */
-    text-align: center;
-    font: bold 3rem 'GmarketSansMedium';
-    margin-bottom: 30px;
-
+.Match_title{
+    margin-top: -10px;
 }
+
 
 
 #game-container {
@@ -331,8 +375,8 @@ canvas {
     font-size: 1.5em;
     cursor: pointer;
     border-radius: 20px;
-    border: 1px solid rgba(117, 117, 117, 0.7);
-    background-color: rgb(206, 206, 206);
+    border: 1px solid rgba(151, 151, 151, 0.7);
+    background-color: rgb(231, 231, 231);
     transition: transform 0.3s ease;
 }
 

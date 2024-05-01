@@ -16,15 +16,14 @@
     align-items: center;
 }
 
-button:not(.btn_login, #change_quote, #show-todo-button, .game_list_button) {
+button:not(.btn_login, #change_quote, #show-todo-button, .game_list_button,#startButton) {
     width: 150PX;
     font-family: inherit;
     border: none;
     background: none;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
     text-transform: uppercase;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
     outline: none;
     cursor: pointer;
     opacity: 0.5;

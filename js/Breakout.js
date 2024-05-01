@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#038DB2";
     ctx.fill();
     ctx.closePath();
   }
@@ -85,28 +85,30 @@ document.addEventListener("DOMContentLoaded", () => {
   function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#038DB2";
     ctx.fill();
     ctx.closePath();
   }
 
-  function drawBricks() {
-    for (let c = 0; c < brickColumnCount; c++) {
-      for (let r = 0; r < brickRowCount; r++) {
-        if (bricks[c][r].status === 1) {
-          const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
-          const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
-          bricks[c][r].x = brickX;
-          bricks[c][r].y = brickY;
-          ctx.beginPath();
-          ctx.rect(brickX, brickY, brickWidth, brickHeight);
-          ctx.fillStyle = "#0095DD";
-          ctx.fill();
-          ctx.closePath();
-        }
+  const brickColors = ["#FE8D6F", "#FDC453", "#DFDD6C", "#A0DDE0", "#9ADBC5"];
+
+function drawBricks() {
+  for (let c = 0; c < brickColumnCount; c++) {
+    for (let r = 0; r < brickRowCount; r++) {
+      if (bricks[c][r].status === 1) {
+        const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+        const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+        bricks[c][r].x = brickX;
+        bricks[c][r].y = brickY;
+        ctx.beginPath();
+        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+        ctx.fillStyle = brickColors[r]; // 각 행마다 다른 색상 적용
+        ctx.fill();
+        ctx.closePath();
       }
     }
   }
+}
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -164,13 +166,19 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(draw);
   }
 
-  function gameOver() {
-    setTimeout(() => {
-      if (confirm("게임 오버! 다시 시작하시겠습니까?")) {
-        startGame();
-      }
-    }, 100);
-  }
+function gameOver() {
+  setTimeout(() => {
+    const restart = confirm("게임 오버! 다시 시작하시겠습니까?");
+    if (restart) {
+      startGame();
+    } else {
+      // 게임을 다시 시작하지 않는 경우, 빈 화면을 보여줌
+      const startMessage = document.getElementById("startMessage");
+      startMessage.style.display = "block"; // 빈 화면 보이기
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }, 100);
+}
 
   function startGame() {
     x = canvas.width / 2;
@@ -182,6 +190,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     draw();
+
+      const startMessage = document.getElementById("startMessage");
+      startMessage.style.display = "none";
   }
 
   // 게임 시작 버튼 클릭 시 draw 함수 실행

@@ -45,7 +45,7 @@ function handleCellRightClick(event) {
 
   // Toggle temporary mine display
   if (!cell.textContent) {
-    cell.textContent = "✅";
+    cell.textContent = "📌";
   } else {
     cell.textContent = "";
   }
@@ -66,7 +66,7 @@ function revealCells(cellIndex) {
 
       const neighboringMines = countNeighboringMines(currentCellIndex);
       if (neighboringMines === 0) {
-        currentCell.style.backgroundColor = "#ddd";
+        currentCell.style.backgroundColor = "#FEDC7B";
 
         const neighboringOffsets = [
           -boardSize - 1,
@@ -89,7 +89,7 @@ function revealCells(cellIndex) {
         });
       } else {
         currentCell.textContent = neighboringMines;
-        currentCell.style.backgroundColor = "#ddd";
+        currentCell.style.backgroundColor = "#FEDC7B";
       }
     }
   }
@@ -137,6 +137,8 @@ function revealMines() {
   setTimeout(() => {
     // 알림 창이 모든 지뢰를 보여준 후에 나타나도록 setTimeout 사용
     if (confirm("게임 오버! 다시 시작하시겠습니까?")) {
+      initGame();
+    } else{
       initGame();
     }
   }, 100);
