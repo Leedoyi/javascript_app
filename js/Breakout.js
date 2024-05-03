@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "#038DB2";
+    ctx.fillStyle = "#82A7DF";
     ctx.fill();
     ctx.closePath();
   }
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#038DB2";
+    ctx.fillStyle = "#82A7DF";
     ctx.fill();
     ctx.closePath();
   }

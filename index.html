@@ -9,7 +9,15 @@
 </head>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
-<body><!-- clock -->
+<body>
+
+    <!-- 커서모양 바꾸기 -->
+    <div>
+        <div class="cursor small"></div>
+        <div class="cursor big"></div>
+    </div>
+    
+    <!-- clock -->
     <div class="header_clock">
         <h2 id="clock">00:00</h2>
     </div>
@@ -166,6 +174,7 @@
                 <img src="./img/seaweed.png" class="breakout_seaweed">
                 <img src="./img/whale.png" class="breakout_whale">
                 <img src="./img/coral-reef.png" class="breakout_coral-reef">
+                    <img src="./img/fish_many.png" class="breakout_fish_many">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="project03_sand">
     <path fill="#F8E9D0" fill-opacity="1"
         d="M0,256L80,261.3C160,267,320,277,480,266.7C640,256,800,224,960,229.3C1120,235,1280,277,1360,298.7L1440,320L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
@@ -223,6 +232,8 @@
     <script src="./js/gsap.js"></script>
     <script src="./js/game.js"></script>
     <script src="./js/breakout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/Quad.min.js"></script>
 </body>
 
 </html>

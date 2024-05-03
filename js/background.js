@@ -37,3 +37,4 @@ document.addEventListener("DOMContentLoaded", function () {
     Realbody.classList.add("darkmode"); // 다크모드를 body에 걸어주기
   }
 });
+

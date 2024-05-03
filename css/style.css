@@ -84,8 +84,8 @@
 }
 
 .darkmode {
-    --bg01-color: #4d4d4d;
-    --bg02-color: #4d4d4d;
+    --bg01-color: #102A46;
+    --bg02-color: #102A46;
     --bg03-color: linear-gradient(to right, #2a5677, #68b4d1, #3e8bb3);
     --bg04-color: linear-gradient(to left, #2a5677,
             #68b4d1,
@@ -405,6 +405,7 @@ canvas {
     border: none;
     background: none;
     color: var(--font-color);
+    z-index: 10;
 }
 
 #startButton:hover {
@@ -474,6 +475,13 @@ canvas {
     rotate: -5deg;
 }
 
+.breakout_fish_many{
+    bottom: 20%;
+        left: 15%;
+        width: 150px;
+        height: 150px;
+}
+
 /*  카드매치 게임*/
 
 .project04_sand{
@@ -485,7 +493,7 @@ canvas {
 
 .match_game_wrap {
     position: absolute;
-    z-index: 2;
+    z-index: 10;
 }
 
 .Match_title {
@@ -552,6 +560,12 @@ canvas {
     bottom: 25%;
     right: 7%;
     width: 100px;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 @media screen and (max-width: 1600px) {
