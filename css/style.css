@@ -370,7 +370,7 @@ svg {
 
 .minesweeper_img_grass07 {
     bottom: 10%;
-    left:25%;
+    left: 25%;
 }
 
 
@@ -468,23 +468,23 @@ canvas {
     width: 80px;
 }
 
-.breakout_coral-reef{
+.breakout_coral-reef {
     bottom: 3.8%;
     left: 30%;
     width: 80px;
     rotate: -5deg;
 }
 
-.breakout_fish_many{
+.breakout_fish_many {
     bottom: 20%;
-        left: 15%;
-        width: 150px;
-        height: 150px;
+    left: 15%;
+    width: 150px;
+    height: 150px;
 }
 
 /*  카드매치 게임*/
 
-.project04_sand{
+.project04_sand {
     filter: var(--main-leaf-filter);
     position: absolute;
     bottom: -5%;
@@ -556,7 +556,7 @@ canvas {
     width: 100px;
 }
 
-.match_game_fish02{
+.match_game_fish02 {
     bottom: 25%;
     right: 7%;
     width: 100px;
@@ -571,8 +571,8 @@ canvas {
 @media screen and (max-width: 1600px) {
 
     .breakout_coral-reef {
-            bottom: 3%;
-        }
+        bottom: 3%;
+    }
 }
 
-
+/* 수정 중 */
