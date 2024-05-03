@@ -66,7 +66,8 @@ function revealCells(cellIndex) {
 
       const neighboringMines = countNeighboringMines(currentCellIndex);
       if (neighboringMines === 0) {
-        currentCell.style.backgroundColor = "#FEDC7B";
+        currentCell.style.backgroundColor =
+          "var(--minesweeper-cell-click-color)";
 
         const neighboringOffsets = [
           -boardSize - 1,
@@ -89,7 +90,8 @@ function revealCells(cellIndex) {
         });
       } else {
         currentCell.textContent = neighboringMines;
-        currentCell.style.backgroundColor = "#FEDC7B";
+        currentCell.style.backgroundColor =
+          "var(--minesweeper-cell-click-color)";
       }
     }
   }
