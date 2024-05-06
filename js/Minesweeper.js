@@ -25,13 +25,15 @@ for (let i = 0; i < totalCells; i++) {
 
 function handleCellClick(event) {
   const cell = event.target;
+
+  // 내가 누른 셀 index
   const cellIndex = parseInt(cell.dataset.index);
 
   if (mines.includes(cellIndex)) {
     // Game over
     cell.style.backgroundColor = "red";
     revealMines();
-    alert("Game over! You clicked on a mine.");
+    alert("게임 오버! 지뢰를 클릭했습니다😭");
   } else {
     // Check neighboring cells
     revealCells(cellIndex);
@@ -51,9 +53,12 @@ function handleCellRightClick(event) {
   }
 }
 
+let revealedCells = new Set();
+
 function revealCells(cellIndex) {
+  // 큐가 빌때까지 반복
   const queue = [cellIndex];
-  const revealedCells = new Set();
+
 
   while (queue.length > 0) {
     const currentCellIndex = queue.shift();
@@ -81,9 +86,17 @@ function revealCells(cellIndex) {
         ];
         neighboringOffsets.forEach((offset) => {
           const neighborIndex = currentCellIndex + offset;
+          const neighborRow = Math.floor(neighborIndex / boardSize);
+          const neighborCol = neighborIndex % boardSize;
+          // 현재 셀의 행과 열 계산
+          const currentRow = Math.floor(currentCellIndex / boardSize);
+          const currentCol = currentCellIndex % boardSize;
+
           if (
             isValidCellIndex(neighborIndex) &&
-            !revealedCells.has(neighborIndex)
+            !revealedCells.has(neighborIndex) &&
+            Math.abs(neighborRow - currentRow) <= 1 && // 새 조건: 행 차이 확인
+            Math.abs(neighborCol - currentCol) <= 1 // 새 조건: 열 차이 확인
           ) {
             queue.push(neighborIndex);
           }
@@ -97,15 +110,26 @@ function revealCells(cellIndex) {
   }
 
   // Check if all non-mine cells are revealed
-  if (revealedCells.size === totalCells - totalMines) {
+      console.log(revealedCells.size, totalCells, totalMines);
+  if (revealedCells.size === (totalCells-totalMines)) {
+
     setTimeout(() => {
-      alert("Congratulations! You've cleared the game!");
+      alert("축하드립니다🎉 게임을 통과했습니다👏");
+      initGame();
     }, 100);
   }
 }
 
 function isValidCellIndex(index) {
   return index >= 0 && index < totalCells;
+}
+
+function isEdgeCell(index) {
+  const row = Math.floor(index / boardSize);
+  const col = index % boardSize;
+  return (
+    row === 0 || row === boardSize - 1 || col === 0 || col === boardSize - 1
+  );
 }
 
 function countNeighboringMines(cellIndex) {
@@ -120,10 +144,23 @@ function countNeighboringMines(cellIndex) {
     boardSize + 1,
   ];
   let count = 0;
+  const row = Math.floor(cellIndex / boardSize);
+  const col = cellIndex % boardSize;
+
   neighboringOffsets.forEach((offset) => {
     const neighborIndex = cellIndex + offset;
-    if (mines.includes(neighborIndex)) {
-      count++;
+    const neighborRow = Math.floor(neighborIndex / boardSize);
+    const neighborCol = neighborIndex % boardSize;
+
+    // 모서리를 넘어가는 인접 셀을 제외
+    if (
+      isValidCellIndex(neighborIndex) &&
+      Math.abs(neighborRow - row) <= 1 &&
+      Math.abs(neighborCol - col) <= 1
+    ) {
+      if (mines.includes(neighborIndex)) {
+        count++;
+      }
     }
   });
   return count;
@@ -138,10 +175,12 @@ function revealMines() {
   // 게임 종료 후 다시 시작할지 묻는 알림 창을 추가한다.
   setTimeout(() => {
     // 알림 창이 모든 지뢰를 보여준 후에 나타나도록 setTimeout 사용
-    if (confirm("게임 오버! 다시 시작하시겠습니까?")) {
+    if (confirm("다시 시작하시겠습니까?")) {
       initGame();
-    } else{
+      revealedCells.clear();
+    } else {
       initGame();
+      revealedCells.clear();
     }
   }, 100);
 }

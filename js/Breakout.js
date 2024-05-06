@@ -128,7 +128,7 @@ function drawBricks() {
       setTimeout(() => {
         if (
           confirm(
-            "축하합니다! 모든 블록을 파괴했습니다! 다시 시작하시겠습니까?"
+            "축하합니다🎉 모든 블록을 파괴했습니다!👏 다시 시작하시겠습니까?"
           )
         ) {
           startGame();
