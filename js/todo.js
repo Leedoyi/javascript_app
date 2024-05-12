@@ -32,7 +32,6 @@ function paintTodo(newTodo) {
 
 function todoSubmit(event) {
     event.preventDefault();
-    // newTodo에 변수값 복사해놓기  
     const newTodo = todoInput.value; 
     todoInput.value = "";
     const newTodoObj = {
@@ -62,7 +61,6 @@ const showTodoButton = document.getElementById("show-todo-button");
 const todoContainer = document.getElementById("todo-container");
 
 showTodoButton.addEventListener("click", function () {
-  // todoContainer의 display 속성을 토글합니다.
   if (todoContainer.style.display === "none") {
     todoContainer.style.display = "block";
   } else {

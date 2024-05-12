@@ -88,15 +88,14 @@ function revealCells(cellIndex) {
           const neighborIndex = currentCellIndex + offset;
           const neighborRow = Math.floor(neighborIndex / boardSize);
           const neighborCol = neighborIndex % boardSize;
-          // 현재 셀의 행과 열 계산
           const currentRow = Math.floor(currentCellIndex / boardSize);
           const currentCol = currentCellIndex % boardSize;
 
           if (
             isValidCellIndex(neighborIndex) &&
             !revealedCells.has(neighborIndex) &&
-            Math.abs(neighborRow - currentRow) <= 1 && // 새 조건: 행 차이 확인
-            Math.abs(neighborCol - currentCol) <= 1 // 새 조건: 열 차이 확인
+            Math.abs(neighborRow - currentRow) <= 1 &&
+            Math.abs(neighborCol - currentCol) <= 1 
           ) {
             queue.push(neighborIndex);
           }
@@ -109,8 +108,6 @@ function revealCells(cellIndex) {
     }
   }
 
-  // Check if all non-mine cells are revealed
-      console.log(revealedCells.size, totalCells, totalMines);
   if (revealedCells.size === (totalCells-totalMines)) {
 
     setTimeout(() => {
@@ -152,7 +149,6 @@ function countNeighboringMines(cellIndex) {
     const neighborRow = Math.floor(neighborIndex / boardSize);
     const neighborCol = neighborIndex % boardSize;
 
-    // 모서리를 넘어가는 인접 셀을 제외
     if (
       isValidCellIndex(neighborIndex) &&
       Math.abs(neighborRow - row) <= 1 &&
@@ -172,9 +168,8 @@ function revealMines() {
     mineCell.textContent = "💣";
   });
 
-  // 게임 종료 후 다시 시작할지 묻는 알림 창을 추가한다.
   setTimeout(() => {
-    // 알림 창이 모든 지뢰를 보여준 후에 나타나도록 setTimeout 사용
+   
     if (confirm("다시 시작하시겠습니까?")) {
       initGame();
       revealedCells.clear();
@@ -186,11 +181,9 @@ function revealMines() {
 }
 
 function initGame() {
-  // 게임 보드를 초기화한다.
   boardElement.innerHTML = "";
-  mines.length = 0; // 지뢰 배열을 비운다.
+  mines.length = 0; 
 
-  // 지뢰를 다시 생성하고, 게임 보드를 다시 렌더링한다.
   for (let i = 0; i < totalMines; i++) {
     let randomCell;
     do {
@@ -204,12 +197,11 @@ function initGame() {
     cell.classList.add("cell");
     cell.dataset.index = i;
     cell.addEventListener("click", handleCellClick);
-    cell.addEventListener("contextmenu", handleCellRightClick); // Right click event
+    cell.addEventListener("contextmenu", handleCellRightClick); 
     boardElement.appendChild(cell);
   }
 }
 
-// 페이지 로딩 시 게임 초기화를 진행한다.
 document.addEventListener("DOMContentLoaded", function () {
   initGame();
 });

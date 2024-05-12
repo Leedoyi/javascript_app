@@ -2,19 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("gameCanvas");
   const ctx = canvas.getContext("2d");
 
-  // Ball properties
+
   const ballRadius = 15;
   let x = canvas.width / 2;
   let y = canvas.height - 30;
   let dx = 2;
   let dy = -2;
 
-  // Paddle properties
+
   const paddleHeight = 10;
   const paddleWidth = 90;
   let paddleX = (canvas.width - paddleWidth) / 2;
 
-  // Block properties
+
   const brickRowCount = 5;
   const brickColumnCount = 4;
   const brickWidth = 95;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Keyboard event detection
+
   let rightPressed = false;
   let leftPressed = false;
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Collision detection between the ball and the bricks
+
   function collisionDetection() {
     for (let c = 0; c < brickColumnCount; c++) {
       for (let r = 0; r < brickRowCount; r++) {
@@ -66,14 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
             y < brick.y + brickHeight
           ) {
             dy = -dy;
-            brick.status = 0; // The brick is now broken
+            brick.status = 0; 
           }
         }
       }
     }
   }
 
-  // Drawing functions
+
   function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -102,7 +102,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brickWidth, brickHeight);
-        ctx.fillStyle = brickColors[r]; // 각 행마다 다른 색상 적용
+        ctx.fillStyle = brickColors[r]; 
         ctx.fill();
         ctx.closePath();
       }
@@ -137,7 +137,7 @@ function drawBricks() {
       return;
     }
 
-    // Boundary collision detection
+
     if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
       dx = -dx;
     }
@@ -153,7 +153,7 @@ function drawBricks() {
       }
     }
 
-    // Paddle movement
+
     if (rightPressed && paddleX < canvas.width - paddleWidth) {
       paddleX += 7;
     } else if (leftPressed && paddleX > 0) {
@@ -172,9 +172,8 @@ function gameOver() {
     if (restart) {
       startGame();
     } else {
-      // 게임을 다시 시작하지 않는 경우, 빈 화면을 보여줌
       const startMessage = document.getElementById("startMessage");
-      startMessage.style.display = "block"; // 빈 화면 보이기
+      startMessage.style.display = "block"; 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
   }, 100);
@@ -195,7 +194,6 @@ function gameOver() {
       startMessage.style.display = "none";
   }
 
-  // 게임 시작 버튼 클릭 시 draw 함수 실행
   const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", startGame);
 });

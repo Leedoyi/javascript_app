@@ -54,15 +54,14 @@ buttons.forEach((btn, index) => {
   });
 });
 
-const gameListNavigation = document.querySelector(".game_list"); // game_list 선택
-const gameListButtons = gameListNavigation.querySelectorAll("button"); // game_list 내의 모든 버튼을 선택
+const gameListNavigation = document.querySelector(".game_list"); 
+const gameListButtons = gameListNavigation.querySelectorAll("button"); 
 
-// game_list 내의 버튼들에 대해서도 동일한 클릭 이벤트리스너 적용
 gameListButtons.forEach((btn, index) => {
   btn.addEventListener("click", (e) => {
-    gsap.set(gameListButtons, { opacity: 0.5 }); // 기존 버튼들의 투명도 조정
-    gsap.set(btn, { opacity: 1 }); // 클릭된 버튼만 투명도를 높여 강조
+    gsap.set(gameListButtons, { opacity: 0.5 }); 
+    gsap.set(btn, { opacity: 1 }); 
 
-    changeCell(index % gridCells.length).play(); // index가 gridCells 배열의 길이를 초과하지 않도록 조정
+    changeCell(index % gridCells.length).play(); 
   });
 });

@@ -23,13 +23,13 @@ function init() {
     var estrela = document.createElement("span");
     estrela.className =
       "estrela " +
-      style[getRandomArbitrary(0, style.length)] + // 배열 길이를 최대값으로 설정
+      style[getRandomArbitrary(0, style.length)] + 
       " " +
-      opacity[getRandomArbitrary(0, opacity.length)] + // 배열 길이를 최대값으로 설정
+      opacity[getRandomArbitrary(0, opacity.length)] + 
       " " +
-      tam[getRandomArbitrary(0, tam.length)]; // 배열 길이를 최대값으로 설정
-    estrela.style.left = getRandomArbitrary(0, widthWindow + 1) + "px"; // window.innerWidth를 포함하도록 수정
-    estrela.style.top = getRandomArbitrary(0, heightWindow + 1) + "px"; // window.innerHeight를 포함하도록 수정
+      tam[getRandomArbitrary(0, tam.length)]; 
+    estrela.style.left = getRandomArbitrary(0, widthWindow + 1) + "px"; 
+    estrela.style.top = getRandomArbitrary(0, heightWindow + 1) + "px"; 
     fragment.appendChild(estrela);
   }
 
