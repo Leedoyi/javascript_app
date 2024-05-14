@@ -3,6 +3,8 @@ const boardSize = 10;
 const totalCells = boardSize * boardSize;
 const totalMines = 20;
 const mines = [];
+let safeCellsCount = totalCells - totalMines; // 안전한 셀의 총 수
+let revealedSafeCellsCount = 0; // 클릭한 안전한 셀의 수
 
 // Generate mines
 for (let i = 0; i < totalMines; i++) {
@@ -59,7 +61,6 @@ function revealCells(cellIndex) {
   // 큐가 빌때까지 반복
   const queue = [cellIndex];
 
-
   while (queue.length > 0) {
     const currentCellIndex = queue.shift();
     const currentCell = boardElement.querySelector(
@@ -68,6 +69,9 @@ function revealCells(cellIndex) {
 
     if (!revealedCells.has(currentCellIndex)) {
       revealedCells.add(currentCellIndex);
+      if (!mines.includes(currentCellIndex)) {
+        revealedSafeCellsCount++; // 클릭한 안전한 셀의 수 증가
+      }
 
       const neighboringMines = countNeighboringMines(currentCellIndex);
       if (neighboringMines === 0) {
@@ -95,7 +99,7 @@ function revealCells(cellIndex) {
             isValidCellIndex(neighborIndex) &&
             !revealedCells.has(neighborIndex) &&
             Math.abs(neighborRow - currentRow) <= 1 &&
-            Math.abs(neighborCol - currentCol) <= 1 
+            Math.abs(neighborCol - currentCol) <= 1
           ) {
             queue.push(neighborIndex);
           }
@@ -108,8 +112,7 @@ function revealCells(cellIndex) {
     }
   }
 
-  if (revealedCells.size === (totalCells-totalMines)) {
-
+  if (revealedCells.size === totalCells - totalMines) {
     setTimeout(() => {
       alert("축하드립니다🎉 게임을 통과했습니다👏");
       initGame();
@@ -169,7 +172,6 @@ function revealMines() {
   });
 
   setTimeout(() => {
-   
     if (confirm("다시 시작하시겠습니까?")) {
       initGame();
       revealedCells.clear();
@@ -182,7 +184,9 @@ function revealMines() {
 
 function initGame() {
   boardElement.innerHTML = "";
-  mines.length = 0; 
+  mines.length = 0;
+  safeCellsCount = totalCells - totalMines; // 안전한 셀의 총 수 재계산
+  revealedSafeCellsCount = 0; // 클릭한 안전한 셀의 수 초기화
 
   for (let i = 0; i < totalMines; i++) {
     let randomCell;
@@ -197,7 +201,7 @@ function initGame() {
     cell.classList.add("cell");
     cell.dataset.index = i;
     cell.addEventListener("click", handleCellClick);
-    cell.addEventListener("contextmenu", handleCellRightClick); 
+    cell.addEventListener("contextmenu", handleCellRightClick);
     boardElement.appendChild(cell);
   }
 }
