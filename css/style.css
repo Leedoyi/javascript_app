@@ -67,6 +67,7 @@
     --login_btton-color: rgb(59, 59, 59);
     --todo-form-input-color: rgba(0, 0, 0, 0.3);
     --svg-color: #AADD79;
+    --header-login-hover-color: white;
 
     /* 메인 */
     --game--list-shadow-color: rgba(72, 173, 67, 0.6);
@@ -100,6 +101,8 @@
     --login_btton-color: rgb(236, 236, 236);
     --todo-form-input-color: rgba(255, 255, 255, 0.5);
     --svg-color: #798857;
+    --header-login-hover-color: black;
+
     /* 메인 */
     --game--list-shadow-color: rgba(70, 82, 60, 0.6);
     --game--list-box-shadow-color: rgba(51, 59, 44, 0.7);
@@ -227,7 +230,7 @@ svg {
 }
 
 .game_list_title {
-    margin-bottom: 100px;
+    margin-bottom: 3%;
     text-align: center;
     font: bold 2.5rem 'GmarketSansMedium';
     color: var(--font-color);
@@ -252,8 +255,15 @@ svg {
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 20px var(--game-shadow);
+    animation: float 6s ease-in-out infinite;
 }
 
+.game_list_commmon:hover {
+    transform: translateY(-15px) rotateY(10deg);
+}
 
 .game_list_shadow_wrap {
     position: absolute;
@@ -271,7 +281,6 @@ svg {
     margin-top: -20px;
     width: 270px;
     height: 50px;
-    /* 동그란 그림자를 추가 */
     border-radius: 100%;
     background-color: var(--game--list-shadow-color);
     box-shadow: 0 0 8px 0 var(--game--list-box-shadow-color);
@@ -317,6 +326,9 @@ svg {
     grid-template-rows: repeat(10, 42px);
     gap: 1px;
     border: 1px solid var(--minesweeper-board-color);
+    box-shadow: 0 10px 30px var(--game-shadow);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .cell {
@@ -529,12 +541,14 @@ canvas {
     border-radius: 20px;
     border: 1px solid var(--canvas-border-color);
     background-color: var(--canvas-color);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    perspective: 1000px;
+    box-shadow: 0 5px 15px var(--game-shadow);
 }
 
 .card.flipped {
     font-size: 2rem;
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) scale(1.05);
 }
 
 .project04 img {
@@ -579,4 +593,3 @@ canvas {
         bottom: 3%;
     }
 }
-
