@@ -8,10 +8,31 @@ function onGeoOk(position) {
     fetch(url)
     .then(response => response.json()
     .then((data) => {
-        const weather = document.querySelector("#weather span:first-child");
-        const city = document.querySelector("#weather span:last-child");
-        city.innerText = data.name;
-        weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;}
+      const weather = document.querySelector("#weather span:first-child");
+      const city = document.querySelector("#weather span:last-child");
+      city.innerText = data.name;
+
+      // 날씨 상태에 따른 이모티콘 매핑
+      const weatherIcons = {
+        Clear: "☀️",
+        Clouds: "☁️",
+        Rain: "🌧️",
+        Drizzle: "🌦️",
+        Thunderstorm: "⛈️",
+        Snow: "❄️",
+        Mist: "🌫️",
+        Fog: "🌫️",
+        Haze: "🌫️",
+        Dust: "💨",
+        Sand: "💨",
+        Ash: "💨",
+        Squall: "💨",
+        Tornado: "🌪️",
+      };
+
+      const weatherEmoji = weatherIcons[data.weather[0].main] || "🌡️";
+      weather.innerText = `${weatherEmoji} / ${data.main.temp}`;
+    }
         ));
 }
 

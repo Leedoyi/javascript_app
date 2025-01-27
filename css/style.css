@@ -83,6 +83,15 @@
     /* 브레이커 */
     --canvas-color: rgb(238, 238, 238);
     --canvas-border-color: white;
+
+    /* todo */
+    --todo-primary: #FEDC7B;
+    --todo-secondary: #4ECDC4;
+    --todo-bg: #FFFFFF;
+    --todo-text: #292F36;
+    --todo-input-bg: rgba(78, 205, 196, 0.1);
+    --todo-item-bg: rgba(255, 107, 107, 0.1);
+    --todo-shadow: rgba(255, 107, 107, 0.2);
 }
 
 .darkmode {
@@ -116,6 +125,16 @@
     /* 브레이커 */
     --canvas-color: #3a738b;
     --canvas-border-color: #8098b4;
+
+
+    /* todo */
+    --todo-primary: #DFBC56;
+    --todo-secondary: #50c0b9;
+    --todo-bg: #1A1A2E;
+    --todo-text: #E1E1E6;
+    --todo-input-bg: rgba(100, 250, 241, 0.1);
+    --todo-item-bg: rgba(255, 142, 142, 0.1);
+    --todo-shadow: rgba(255, 142, 142, 0.2);
 }
 
 body.darkmode .project02_sun {
@@ -229,13 +248,30 @@ svg {
     position: absolute;
 }
 
+@keyframes subtleGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px var(--todo-secondary);
+    }
+
+    50% {
+        text-shadow: 0 0 15px var(--todo-primary);
+    }
+}
+
 .game_list_title {
     margin-bottom: 3%;
     text-align: center;
     font: bold 2.5rem 'GmarketSansMedium';
     color: var(--font-color);
+    animation: none;
+    letter-spacing: 1px;
 }
 
+.darkmode .game_list_title {
+    animation: subtleGlow 4s ease-in-out infinite;
+}
 
 .game_list {
     position: relative;
@@ -331,6 +367,8 @@ svg {
     overflow: hidden;
 }
 
+
+
 .cell {
     width: 42px;
     height: 42px;
@@ -343,10 +381,15 @@ svg {
 
 .Minesweeper_title {
     width: 600px;
-    margin-top: -10px;
 }
 
-.project02 img {}
+.Minesweeper_sub_detail {
+    text-align: center;
+    margin: -15px 0px 20px 0px;
+    font: 500 16px 'GmarketSansMedium';
+}
+
+
 
 .minesweeper_img_grass {
     position: absolute;
@@ -548,7 +591,7 @@ canvas {
 
 .card.flipped {
     font-size: 2rem;
-    transform: rotateY(180deg) scale(1.05);
+    transform: rotateY(180deg);
 }
 
 .project04 img {

@@ -22,7 +22,7 @@
 }
 
 button:not(.btn_login, #change_quote, #show-todo-button, .game_list_button, #startButton) {
-    width: 150px;
+    width: 130px;
     font-family: inherit;
     border: 2px solid transparent;
     background: rgba(255, 255, 255, 0.1);
@@ -200,97 +200,131 @@ input:focus {
 }
 
 
-
-/* todo-list */
-
 #show-todo-button {
-    margin: 0px 20px;
-    border: none;
-    background-color: transparent;
+    position: fixed;
+    bottom: 25px;
+    right: 120px;
+    padding: 9px 15px;
     font-family: 'GmarketSansMedium';
+    font-size: 1rem;
+    background: var(--todo-primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px var(--todo-shadow);
+    transform-origin: center;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
 }
+
 
 #show-todo-button:hover {
+    transform: scale(1.1);
     cursor: pointer;
+    background: var(--todo-secondary);
 }
 
-.todo-container {
-    font-size: 1rem;
-    width: 200px;
-}
-
-/* todobox */
-#box03 {
+#todo-container {
     position: fixed;
-    bottom: 70px;
-    right: 60px;
-    margin-top: 50px;
-    width: 200px;
-    height: 300px;
-    border-radius: 30px;
-    background-color: var(--box03-color);
-    filter: url(#turbulence);
+    bottom: 80px;
+    right: 50px;
+    width: 300px;
+    background: var(--todo-bg);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    color: var(--todo-text);
 }
 
 #todo-form {
-    display: flex;
-    justify-content: center;
-}
-
-ul#todo-list {
-    overflow: scroll;
-    height: 180px;
-    width: 230px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-#todo-list li {
-    height: 30px;
-    list-style: none;
-    color: var(--font-color);
-    font-size: 0.8rem;
-    font-family: 'GmarketSansMedium';
+    margin-bottom: 20px;
 }
 
 #todo-form input {
-    border-width: 0 0 5px;
-    border-bottom: 2px solid var(--todo-form-input-color);
-    color: var(--font-color);
-    text-align: center;
-    background-color: transparent;
-    font-size: 0.8rem;
-    width: 150px;
-    height: 40px;
-    margin-top: 10px;
-    transition: all, 0.5s;
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--todo-secondary);
+    border-radius: 10px;
+    background: var(--todo-input-bg);
+    color: var(--todo-text);
+    font-family: 'GmarketSansMedium';
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 #todo-form input:focus {
     outline: none;
+    border-color: var(--todo-primary);
+    box-shadow: 0 0 10px var(--todo-shadow);
 }
 
-#todo-form input:hover::-webkit-input-placeholder {
-    color: transparent;
-}
-
-#todo-list button {
-    width: 30px;
-    height: 50px;
-    margin-left: 10px;
-    border: none;
-    font-size: 1.2rem;
-    background-color: transparent;
-}
-
-#todo-list button:hover {
-    cursor: pointer;
-}
-
-#todo-form>input::placeholder {
-    color: var(--font-color);
+#todo-form input::placeholder {
+    color: var(--todo-text);
+    opacity: 0.6;
     font-family: 'GmarketSansMedium';
 }
 
+#todo-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0;
+}
+
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: var(--todo-item-bg);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: 'GmarketSansMedium';
+    color: var(--todo-text);
+}
+
+#todo-list li:hover {
+    transform: translateX(-5px);
+    background: var(--todo-input-bg);
+}
+
+#todo-list button {
+    background: var(--todo-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'GmarketSansMedium';
+}
+
+#todo-list button:hover {
+    transform: rotate(90deg);
+    background: var(--todo-secondary);
+}
+
+/* Scrollbar styling */
+#todo-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#todo-list::-webkit-scrollbar-track {
+    background: var(--todo-input-bg);
+    border-radius: 4px;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+    background: var(--todo-secondary);
+    border-radius: 4px;
+}
+
+
+
+#todo-list li {
+    animation: slideIn 0.3s ease forwards;
+}

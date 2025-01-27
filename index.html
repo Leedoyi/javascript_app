@@ -20,8 +20,8 @@
     <div class="header">
         <div class="header_menu">
             <button>Home</button>
-            <button>Minesweeper Game</button>
-            <button>Breakout Game</button>
+            <button>Minesweeper</button>
+            <button>Breakout</button>
             <button>Match Game</button>
         </div>
 
@@ -49,19 +49,13 @@
             <span></span>
         </div>
 
-        <button id="show-todo-button">오늘의 할일</button>
-
+        <button id="show-todo-button">📝 오늘의 할일</button>
+        
         <div id="todo-container" style="display:none;">
-            <h2 class="hidden">Todo-List</h2>
-            <section id="box03">
-                <div>
-                    <form id="todo-form">
-                        <p></p>
-                        <input type="text" placeholder="오늘은 어떤 하루가 되나요!" required>
-                    </form>
-                    <ul id="todo-list"></ul>
-                </div>
-            </section>
+            <form id="todo-form">
+                <input type="text" placeholder="✨ 오늘은 어떤 모험을 떠나볼까요?" required>
+            </form>
+            <ul id="todo-list"></ul>
         </div>
 
         <!-- toggle -->
@@ -97,7 +91,7 @@
 
                 <!-- 뜨는 내용 -->
                 <div class="game_list_wrap">
-                    <div class="game_list_title">Choose the game you want</div>
+                    <div class="game_list_title">Choose the game you want🎮</div>
 
                     <div class="game_list">
                         <button class="hidden"></button>
@@ -153,8 +147,13 @@
                 <div id="ground"></div>
 
                 <div class="board_wrap">
-                    <div class="game_title Minesweeper_title">Minesweeper Game</div>
+                    <div >
+                        <p class="game_title Minesweeper_title">Minesweeper Game</p>
+                        <p  class="Minesweeper_sub_detail">지뢰 갯수:20개</p>
+                    </div>
+                
                     <div class="board" id="board"></div>
+                    
                 </div>
 
 
