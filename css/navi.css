@@ -139,16 +139,20 @@ input:focus {
 
 
 #weather {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--font-color);
+    margin-right: 10px;
 }
 
 #weather>span:nth-child(1) {
     margin-bottom: -20px;
 }
 
+
+
+
 /* toggle */
-.line6 {}
+
 
 #dn {
     display: none;
@@ -201,25 +205,22 @@ input:focus {
 
 
 #show-todo-button {
-    position: fixed;
-    bottom: 25px;
-    right: 120px;
-    padding: 9px 15px;
+    padding: 5px 10px;
     font-family: 'GmarketSansMedium';
     font-size: 1rem;
     background: var(--todo-primary);
-    color: white;
+    color: var(--font-color);
     border: none;
     border-radius: 50px;
     box-shadow: 0 4px 15px var(--todo-shadow);
     transform-origin: center;
     transition: all 0.3s ease;
     animation: pulse 2s infinite;
+    margin-right: 10px;
 }
 
 
 #show-todo-button:hover {
-    transform: scale(1.1);
     cursor: pointer;
     background: var(--todo-secondary);
 }
@@ -227,7 +228,7 @@ input:focus {
 #todo-container {
     position: fixed;
     bottom: 80px;
-    right: 50px;
+    right: 40px;
     width: 300px;
     background: var(--todo-bg);
     border-radius: 20px;
